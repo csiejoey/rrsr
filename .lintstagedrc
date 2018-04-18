@@ -1,0 +1,12 @@
+{
+  "ignore": ["src/client.min.js"],
+  "linters": {
+    "*.css": [
+      "stylelint --fix"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+  }
+}
