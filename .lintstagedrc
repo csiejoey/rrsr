@@ -1,5 +1,4 @@
 {
-  "ignore": ["src/client.min.js"],
   "linters": {
     "*.css": [
       "stylelint --fix"

@@ -2,6 +2,7 @@ const debug = process.env.NODE_ENV !== 'production';
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -41,11 +42,28 @@ module.exports = {
     ],
   },
   output: {
-    path: `${__dirname}/src/`,
-    filename: 'client.min.js',
+    path: path.join(__dirname, 'public'),
+    filename: '[hash].bundle.js',
   },
-  plugins: debug ? [] : [
+  plugins: debug ? [
+    new HtmlWebpackPlugin({
+      template: './template.html',
+      files: {
+        css: ['style.css'],
+        js: ['bundle.js'],
+      },
+      filename: 'index.html',
+    }),
+  ] : [
     new webpack.optimize.OccurrenceOrderPlugin(),
+    new HtmlWebpackPlugin({
+      template: './template.html',
+      files: {
+        css: ['style.css'],
+        js: ['bundle.js'],
+      },
+      filename: 'index.html',
+    }),
   ],
   devServer: {
     historyApiFallback: true,

@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --open --mode=development --content-base src --inline --hot",
-    "prebuild": "rimraf src/client.min.js",
+    "prebuild": "rimraf public",
     "build": "NODE_ENV=production webpack --mode=production",
     "lint": "eslint src/js && stylelint 'src/css/*.css'",
     "lint:fix": "eslint src/js --fix && stylelint 'src/css/*.css' --fix",
@@ -47,6 +47,7 @@
     "eslint-plugin-react": "^7.7.0",
     "file-loader": "^1.1.11",
     "gh-pages": "^1.1.0",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "rimraf": "^2.6.2",
