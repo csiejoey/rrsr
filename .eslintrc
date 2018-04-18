@@ -26,8 +26,6 @@
       "no-underscore-dangle": 0,
       "no-else-return": 0,
       "no-return-assign": 0,
-      "react/require-default-props": 0,
-      "react/prop-types": 0,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
